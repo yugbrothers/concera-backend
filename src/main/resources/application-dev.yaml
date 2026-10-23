@@ -1,0 +1,52 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:uitmerch;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: com.uitmerch.backend.common.config.H2DialectWithEnum
+
+  flyway:
+    enabled: false
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  mail:
+    host: localhost
+    port: 25
+    username: dev@localhost
+    password: dev
+
+app:
+  jwt:
+    secret: WGztExvYOnA7IfKPe2E7bSBGL14wtjO9l+HQA2OCqgBUgOTMBzQcP2kKRV9RwNZmPLD7J4aDz+y4AY+xBALagg==
+  storage:
+    endpoint: http://localhost
+    region: ap-southeast-2
+    access-key: dev
+    secret-key: dev
+    public-url: http://localhost/dev-storage
+
+springdoc:
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.uitmerch: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.flywaydb: DEBUG
